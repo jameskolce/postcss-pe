@@ -1,0 +1,29 @@
+{
+  "name": "postcss-pe",
+  "version": "1.0.0",
+  "description": "PostCSS plugin that transforms px values to em, using a pe unit",
+  "keywords": [
+    "postcss",
+    "css",
+    "postcss-plugin",
+    "px",
+    "unit",
+    "em",
+    "pe"
+  ],
+  "author": "James Kolce <contact@jameskolce.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jameskolce/postcss-pe.git"
+  },
+  "dependencies": {
+    "postcss": "^5.0.21"
+  },
+  "devDependencies": {
+    "tape": "^4.5.1"
+  },
+  "scripts": {
+    "test": "tape test"
+  }
+}
