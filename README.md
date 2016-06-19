@@ -65,7 +65,9 @@ You can write sizes in two different forms:
 1. `{value}(parentSize)pe`. e.g. `24(16)pe` which will produce `1.5em` 
 2. `{value}pe`. e.g. `24pe` which will produce `1.5em` if the font-size of the root element is 16px.
 
-**Note:** If there is no font-size declaration in the root element, then `16px` will be assumed.
+**Notes:** 
+- If you don't set an explicit parent font-size, this plugin will use the font-size in the root element. `:root` by default.
+- If there is no font-size declaration in the root element, then `16px` will be assumed.
 
 ## Options
 
