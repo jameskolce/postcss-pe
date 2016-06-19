@@ -19,7 +19,7 @@ section {
 }
 
 .othersection article {
-  margin-top: 96·48pe;
+  margin-top: 96|48pe;
 }
 ```
 
@@ -62,7 +62,7 @@ See [PostCSS](https://github.com/postcss/postcss) docs for examples for your env
 
 You can write sizes in two different forms:
 
-1. `{value}·[parentSize]pe`. e.g. `24(16)pe` which will produce `1.5em` 
+1. `{value}|[parentSize]pe`. e.g. `24|16pe` which will produce `1.5em` 
 2. `{value}pe`. e.g. `24pe` which will produce `1.5em` if the font-size of the root element is 16px.
 
 **Notes:** 
