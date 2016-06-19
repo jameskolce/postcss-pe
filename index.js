@@ -8,7 +8,7 @@ const defaults = {
 
 module.exports = postcss.plugin('postcss-pe', (opts = defaults) => {
   return (css) => {
-    const peReg = new RegExp('(\\d*\\.?\\d+)(?:\\|)?(\\d*\\.?\\d+)?' + opts.unit, 'gi');
+    const peReg = new RegExp('(\\d*\\.?\\d+)(?:\\/)?(\\d*\\.?\\d+)?' + opts.unit, 'gi');
 
     css.replaceValues(peReg, {fast: opts.unit}, (val) => {
       return pxToEm(css, val, opts);
