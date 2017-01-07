@@ -1,4 +1,4 @@
-# postcss-pr
+# postcss-pe
 
 PostCSS plugin that defines a `pe` unit that transforms a value in px to output its equivalent in em.
 
