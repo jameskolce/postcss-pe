@@ -86,6 +86,13 @@ The selector where the font-size is set. Used when the parent size of the elemen
 
 The unit to be used in your CSS.
 
+### `fontSize`
+
+- Type: `number`
+- Default: `null`
+
+The default root font size.
+
 ## License
 
 MIT - James Kolce
