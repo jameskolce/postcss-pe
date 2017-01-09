@@ -32,3 +32,31 @@ test('units', (t) => {
 
   t.end();
 });
+
+
+// timingTest
+const timeArr = [];
+let averageTime = 0;
+
+const timingTest = (file) => {
+    const start = +new Date();
+    actual(file);
+    const end = +new Date();
+    const time = (end - start) / 1000;
+    console.log(`Time: ${time} seconds`);
+    return time;
+}
+
+console.log(`# Timing test\n# Run project.css, 5 repeats`);
+
+for (let i = 0, repeats = 5; i < repeats; i++) {
+    timeArr.push(timingTest('project'));
+}
+
+timeArr.forEach(function (item) {
+    averageTime += item;
+});
+
+averageTime = (averageTime / timeArr.length).toFixed(3);
+
+console.log(`Average time: ${averageTime} seconds`);
