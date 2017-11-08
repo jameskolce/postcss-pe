@@ -18,7 +18,7 @@
     "url": "https://github.com/jameskolce/postcss-pe.git"
   },
   "dependencies": {
-    "postcss": "^5.0.21"
+    "postcss": "^6.0.14"
   },
   "devDependencies": {
     "tape": "^4.5.1"
