@@ -73,7 +73,7 @@ Plugin tries to find a divider by next steps:
 1. Explicit option `rootFontSize`, e.g. `rootFontSize: 16`.
 2. If no `rootFontSize`, the plugin will use the font-size in the root element. `:root` by default.
 3. If no root element, then `16px` will be assumed.
-4. If `followRuleFontSize: true` [see details](followRuleFontSize).
+4. If `followRuleFontSize: true` [see details](#followrulefontsize).
 
 ## Options
 
@@ -103,7 +103,7 @@ The default root font size.
 - Type: `boolean`
 - Default: `false`
 
-Plugin retrieves `font-size` declared in each css **rule** e.g. `p { ... }` and use it as a divider for this **rule**. If there is no `font-size`, it defines in [default way](looking-for-divider).
+Plugin retrieves `font-size` declared in each css **rule** e.g. `p { ... }` and use it as a divider for this **rule**. If there is no `font-size`, it defines in [default way](#looking-for-divider).
 
 `followRuleFontSize: true`
 
