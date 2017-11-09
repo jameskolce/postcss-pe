@@ -2,11 +2,11 @@ const test = require("tape");
 const postcss = require('postcss');
 const fs = require('fs');
 
-const actual = (file) => {
+const actual = (file, options) => {
   const css = fs.readFileSync(`test/fixtures/${file}.css`, 'utf8');
 
   return postcss([
-    require('../')
+    require('../')(options)
   ]).process(css).css.replace(/\s+/g, '');
 };
 
@@ -30,10 +30,10 @@ test('units', (t) => {
       expected('test3'),
       'should be transformed with mixed values');
 
-  //t.equal(
-  //  actual('test4'),
-  //  expected('test4'),
-  //  'should be transformed with a rule font size value');
+  t.equal(
+    actual('test4', {followRuleFontSize: true, rootFontSize: 16}),
+    expected('test4'),
+    'should be transformed with a rule font size value');
 
   t.end();
 });
