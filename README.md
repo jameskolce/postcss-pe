@@ -64,12 +64,16 @@ See [PostCSS](https://github.com/postcss/postcss) docs for examples for your env
 You can write sizes in two different forms:
 
 1. `{value}/[parentSize]pe`. e.g. `24/16pe` which will produce `1.5em` 
-2. `{value}pe`. e.g. `24pe` which will produce `1.5em` if the font-size of the root element is 16px.
+2. `{value}pe`. e.g. `24pe` which will produce `1.5em` if `divider` is 16px.
 
-**Notes:** 
-- If you don't set an explicit parent font-size, this plugin will use the font-size in the root element. `:root` by default.
-- If there is no font-size declaration in the root element, then `16px` will be assumed.
-- if you set `followRuleFontSize: true`, you will use the font-size declared in each css `rule`.
+### Looking for divider
+
+Plugin tries to find a divider by next steps:
+
+1. Explicit option `rootFontSize`, e.g. `rootFontSize: 16`.
+2. If no `rootFontSize`, the plugin will use the font-size in the root element. `:root` by default.
+3. If no root element, then `16px` will be assumed.
+4. If `followRuleFontSize: true` [see details](followRuleFontSize).
 
 ## Options
 
@@ -99,6 +103,8 @@ The default root font size.
 - Type: `boolean`
 - Default: `false`
 
+Plugin retrieves `font-size` declared in each css **rule** e.g. `p { ... }` and use it as a divider for this **rule**. If there is no `font-size`, it defines in [default way](looking-for-divider).
+
 `followRuleFontSize: true`
 
 ```css
@@ -116,6 +122,7 @@ p {
 ```
 
 `followRuleFontSize: false`
+
 ```css
 /* From */
 p {
