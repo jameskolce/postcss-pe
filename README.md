@@ -69,6 +69,7 @@ You can write sizes in two different forms:
 **Notes:** 
 - If you don't set an explicit parent font-size, this plugin will use the font-size in the root element. `:root` by default.
 - If there is no font-size declaration in the root element, then `16px` will be assumed.
+- if you set `followRuleFontSize: true`, you will use the font-size declared in each css `rule`.
 
 ## Options
 
@@ -86,12 +87,49 @@ The selector where the font-size is set. Used when the parent size of the elemen
 
 The unit to be used in your CSS.
 
-### `fontSize`
+### `rootFontSize`
 
 - Type: `number`
 - Default: `null`
 
 The default root font size.
+
+### `followRuleFontSize`
+
+- Type: `boolean`
+- Default: `false`
+
+`followRuleFontSize: true`
+
+```css
+/* From */
+p {
+	font-size: 24pe; /* 24/16 */
+	margin: 24pe; /* 24/24 */
+}
+
+/* To */
+p {
+	font-size: 1.5em;
+	margin: 1em;
+}
+```
+
+`followRuleFontSize: false`
+```css
+/* From */
+p {
+	font-size: 24pe; /* 24/16 */
+	margin: 24pe; /* 24/16 */
+}
+
+/* To */
+p {
+	font-size: 1.5em;
+	margin: 1.5em;
+}
+```
+
 
 ## License
 
