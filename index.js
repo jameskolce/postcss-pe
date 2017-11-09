@@ -11,7 +11,7 @@ const defaults = {
 
 module.exports = postcss.plugin('postcss-pe', (opts) => {
     opts = opts || {};
-    const userFontSize = opts.rootFontSize;
+    const userFontSize = opts.rootFontSize || opts.fontSize; // opts.fontSize legacy option name
     opts = Object.assign(defaults, opts);
 
   return (css) => {
