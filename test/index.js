@@ -30,6 +30,11 @@ test('units', (t) => {
       expected('test3'),
       'should be transformed with mixed values');
 
+  t.equal(
+    actual('test4'),
+    expected('test4'),
+    'should be transformed with a rule font size value');
+
   t.end();
 });
 
