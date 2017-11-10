@@ -1,31 +1,34 @@
-.a {
+p {
 	font-size: 16pe;
 	margin: 24pe;
 }
 
-.d {
+p {
 	font-size: 24pe;
 	margin: 24pe;
 }
 
-.e {
-	font-size: 24px;
-	margin: 24pe;
-}
-
-.b {
+p {
 	font-size: 32/16pe;
 	margin: 48pe;
 }
 
-.c {
+p {
 	font-size: 48/32pe;
 	margin: 96pe;
 }
 
-@media (max-width: 500px) {
-  .g {
-	font-size: 32pe;
-	margin: 64pe;
-  }
+p {
+	font-size: 24px;
+	margin: 24pe;
+}
+
+p {
+	font-size: 2em;
+	margin: 32pe 0;
+}
+
+p {
+	font-size: 2rem;
+	margin: 32pe 0;
 }
