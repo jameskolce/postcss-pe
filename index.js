@@ -17,6 +17,7 @@ module.exports = postcss.plugin('postcss-pe', (opts) => {
   return (css) => {
     let rootFontSize = userFontSize || getRootSize(css, opts) || opts.rootFontSize;
     const peReg = new RegExp('(\\d*\\.?\\d+)(?:\\/)?(\\d*\\.?\\d+)?' + opts.unit, 'gi');
+	const peFsReg = new RegExp('(\\d*\\.?\\d+)(?:\\/)?(\\d*\\.?\\d+)?(' + opts.unit + ')', 'i');
 
 
     return css.walkRules(rule => {
@@ -24,12 +25,14 @@ module.exports = postcss.plugin('postcss-pe', (opts) => {
 
 		if ( opts.followRuleFontSize ) {
 			rule.walkDecls('font-size', decl => {
-				let props = decl.value.match(/(\d*\.?\d+)(?:\/)?(\d*\.?\d+)?(\w+)/);
-				// Escape if font-size: inherit, etc.
+				// Match only opts.unit (pe)
+				let props = decl.value.match( peFsReg );
+				// Escape if font-size is not opts.unit
 				if ( !props ) return;
+				// Define new divider
 				ruleFontSize = props[1];
-				// Transform rule font-size to em, omit px units.
-				if ( props[3] === opts.unit ) decl.value = pxToEm(decl.value, rootFontSize);
+				// Transform font-size to em
+				decl.value = pxToEm(decl.value, rootFontSize);
 			});
 		}
 
